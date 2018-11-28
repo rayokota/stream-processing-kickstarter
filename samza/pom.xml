@@ -34,7 +34,7 @@ under the License.
     <packaging>jar</packaging>
 
     <properties>
-        <samza.version>0.14.1-SNAPSHOT</samza.version>
+        <samza.version>1.0.0</samza.version>
         <kafka.scala.version>2.11</kafka.scala.version>
         <kafka.version>0.11.0.2</kafka.version>
         <scala.binary.version>2.11</scala.binary.version>
