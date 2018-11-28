@@ -146,6 +146,4 @@ public class SamzaWordCount implements WordCount {
           .sendTo(counts);
     }
   }
-
-
 }
