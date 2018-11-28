@@ -38,7 +38,7 @@ public class SparkWordCount implements WordCount, java.io.Serializable {
   @Override
   public void countWords(
       String bootstrapServers, String zookeeperConnect,
-      String inputTopic, String outputTopic) {
+      String inputTopic, String outputTopic) throws Exception {
 
     SparkSession spark = SparkSession
         .builder()
@@ -73,12 +73,14 @@ public class SparkWordCount implements WordCount, java.io.Serializable {
         .selectExpr("CAST(value AS STRING) key",
             "CAST(serializeLong(count) AS BINARY) value")
         .writeStream()
-        .outputMode("update")
+        .outputMode("complete")
         .format("kafka")
         .option("kafka.bootstrap.servers", bootstrapServers)
         .option("topic", outputTopic)
         .option("checkpointLocation", Utils.tempDirectory().getAbsolutePath())
         .start();
+
+    query.awaitTermination();
   }
 
   @Override

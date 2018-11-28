@@ -101,8 +101,6 @@ public class SamzaWordCount implements WordCount {
     public WordCountApplication(
         String bootstrapServers, String zookeeperConnect, String inputTopic, String outputTopic
     ) {
-      System.out.println("*** boot " + bootstrapServers);
-      System.out.println("*** zooww " + zookeeperConnect);
       this.bootstrapServers = bootstrapServers;
       this.zookeeperConnect = zookeeperConnect;
       this.inputTopic = inputTopic;
